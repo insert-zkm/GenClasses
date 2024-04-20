@@ -3,14 +3,12 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
-SOURCES += \
-        classunit.cpp \
-        main.cpp \
-        methodunit.cpp \
-        unit.cpp
+INCLUDEPATH += src/
 
-HEADERS += \
-    PrintOperationUnit.h \
-    classunit.h \
-    methodunit.h \
-    unit.h
+include(src/LanguageFactory/languagefactory.pri)
+include(src/CPP/cpp.pri)
+include(src/CS/cs.pri)
+include(src/Java/java.pri)
+include(src/Units/units.pri)
+
+SOURCES += main.cpp
