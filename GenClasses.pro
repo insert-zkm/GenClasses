@@ -12,3 +12,5 @@ include(src/JavaUnit/javaunit.pri)
 include(src/Units/units.pri)
 
 SOURCES += main.cpp
+
+HEADERS +=

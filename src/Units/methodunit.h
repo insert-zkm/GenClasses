@@ -12,7 +12,8 @@ public:
     enum Modifier {
         STATIC = 1,
         CONST = 1 << 1,
-        VIRTUAL = 1 << 2
+        VIRTUAL = 1 << 2,
+        FINAL = 1 << 3
     };
 public:
     MethodUnit( const std::string& name, const std::string& returnType, Flags flags ) :

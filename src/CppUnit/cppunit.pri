@@ -2,7 +2,7 @@ INCLUDEPATH += $$PWD
 DEPENDPATH += $$PWD
 
 HEADERS += \
-    $$PWD/cpp.h
+    $$PWD/cppunits.h
 
 SOURCES += \
-    $$PWD/cpp.cpp
+    $$PWD/cppunits.cpp

@@ -7,11 +7,15 @@
 #include "printoperationunit.h"
 #include "unit.h"
 
+// c# language units
+#include "csunits.h"
+
 class CsFactory : public LanguageFactory
 {
 public:
     std::shared_ptr<ClassUnit> createClass(const std::string& name) const override;
     std::shared_ptr<MethodUnit> createMethod(const std::string& name, const std::string& returnType, Unit::Flags flags) const override;
+    std::shared_ptr<PrintOperationUnit> createPrintOperation(const std::string &text) const override;
 };
 
 #endif // CSFACTORY_H

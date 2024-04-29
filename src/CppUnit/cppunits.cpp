@@ -1,4 +1,4 @@
-#include "cpp.h"
+#include "cppunits.h"
 
 const std::vector<std::string> CppClassUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
 
@@ -8,30 +8,30 @@ CppClassUnit::CppClassUnit(const std::string& name) : ClassUnit(name) {
 
 void CppClassUnit::add(const std::shared_ptr<Unit> &unit, Flags flags) {
     int accessModifier = PRIVATE;
-    if( flags < ACCESS_MODIFIERS.size() ) {
+    if(flags < ACCESS_MODIFIERS.size()) {
         accessModifier = flags;
     }
-    m_fields[ accessModifier ].push_back( unit );
+    m_fields[accessModifier].push_back(unit);
 }
 
 std::string CppClassUnit::compile(unsigned int level) const {
-    std::string result = generateShift( level ) + "class " + m_name + " {\n";
+    std::string result = generateShift(level) + "class " + m_name + " {\n";
     for( size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i ) {
-        if( m_fields[ i ].empty() ) {
+        if( m_fields[i].empty() ) {
             continue;
         }
-        result += ACCESS_MODIFIERS[ i ] + ":\n";
-        for( const auto& f : m_fields[ i ] ) {
-            result += f->compile( level + 1 );
+        result += ACCESS_MODIFIERS[i] + ":\n";
+        for( const auto& f : m_fields[i] ) {
+            result += f->compile(level + 1);
         }
         result += "\n";
     }
-    result += generateShift( level ) + "};\n";
+    result += generateShift(level) + "};\n";
     return result;
 }
 
 std::string CppMethodUnit::compile(unsigned int level) const {
-    std::string result = generateShift( level );
+    std::string result = generateShift(level);
     if( m_flags & STATIC ) {
         result += "static ";
     } else if( m_flags & VIRTUAL ) {
@@ -39,17 +39,17 @@ std::string CppMethodUnit::compile(unsigned int level) const {
     }
     result += m_returnType + " ";
     result += m_name + "()";
-    if( m_flags & CONST ) {
+    if(m_flags & CONST) {
         result += " const";
     }
     result += " {\n";
     for( const auto& b : m_body ) {
-        result += b->compile( level + 1 );
+        result += b->compile(level + 1);
     }
-    result += generateShift( level ) + "}\n";
+    result += generateShift(level) + "}\n";
     return result;
 }
 
 std::string CppOperationUnit::compile(unsigned int level) const {
-    return generateShift( level ) + "printf( \"" + m_text + "\" );\n";
+    return generateShift(level) + "printf(\"" + m_text + "\");\n";
 }
