@@ -11,6 +11,14 @@ include(src/CsUnit/csunit.pri)
 include(src/JavaUnit/javaunit.pri)
 include(src/Units/units.pri)
 
-SOURCES += main.cpp
+SOURCES += \
+        classunit.cpp \
+        main.cpp \
+        methodunit.cpp \
+        unit.cpp
 
-HEADERS +=
+HEADERS += \
+    PrintOperationUnit.h \
+    classunit.h \
+    methodunit.h \
+    unit.h

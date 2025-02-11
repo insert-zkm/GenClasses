@@ -3,6 +3,7 @@
 
 #include "classunit.h"
 #include "methodunit.h"
+
 #include "printoperationunit.h"
 #include "languagefactory.h"
 
@@ -51,5 +52,6 @@ int main()
 
     lf = std::make_shared<JavaFactory>();
     std::cout << generateProgram(lf) << std::endl;
+
     return 0;
 }
