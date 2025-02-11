@@ -48,7 +48,7 @@ const std::vector<std::string> CppClassUnit::ACCESS_MODIFIERS = { "public", "pro
 
 ### ClassUnit::m_fields (Unit\[\]\[\])
 Двумерный динамический массив в котором находятся все поля и методы(Unit-ы) данного класса. i-я строка содержит Unit-ы с модификатором доступа `ACCESS_MODIFIERS[static_cast<ClassUnit::AccessModifier>(i)]`
-![[uml/table.png]]
+![](uml/table.png)
 
 ### MethodUnit::m_body (Unit\[\])
 Массив Unit-в которые будут находится в теле данного метода
