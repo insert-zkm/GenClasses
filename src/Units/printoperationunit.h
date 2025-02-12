@@ -7,7 +7,7 @@
 
 class PrintOperationUnit : public Unit {
 public:
-    explicit PrintOperationUnit( const std::string& text ) : m_text( text ) { }
+    PrintOperationUnit( const std::string& text ) : m_text( text ) { }
 
 protected:
     std::string m_text;
