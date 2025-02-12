@@ -7,14 +7,13 @@
 #include "printoperationunit.h"
 #include "unit.h"
 
-// cpp language units
 #include "cppunits.h"
 
 class CppFactory : public LanguageFactory
 {
 public:
     std::shared_ptr<ClassUnit> createClass(const std::string& name) const override;
-    std::shared_ptr<MethodUnit> createMethod(const std::string& name, const std::string& returnType, Unit::Flags flags) const override;
+    std::shared_ptr<MethodUnit> createMethod(const std::string& name, const std::string& returnType = "void", Unit::Flags flags = 0) const override;
     std::shared_ptr<PrintOperationUnit> createPrintOperation(const std::string& text) const override;
 
 };

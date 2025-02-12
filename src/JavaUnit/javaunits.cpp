@@ -16,15 +16,14 @@ void JavaClassUnit::add(const std::shared_ptr<Unit> &unit, Flags flags) {
 }
 
 std::string JavaClassUnit::compile(unsigned int level) const {
-    std::string result = generateShift(level) + "class " + m_name + " {\n";
+    std::string result = "class " + m_name + " {\n";
     for( size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i ) {
         if( m_fields[i].empty() ) {
             continue;
         }
         for(int j = 0; j < m_fields[i].size(); j++) {
-            result += generateShift(level + 1) + ACCESS_MODIFIERS[j] + " " + m_fields[i][j]->compile(level + 1);
+            result += generateShift(level + 1) + ACCESS_MODIFIERS[i] + " " + m_fields[i][j]->compile(level + 1)  + "\n";
         }
-        result += "\n";
     }
     result += generateShift(level) + "}\n";
     return result;

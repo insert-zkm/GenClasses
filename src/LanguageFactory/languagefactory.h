@@ -14,7 +14,7 @@ public:
     virtual ~LanguageFactory() = default;
 
     virtual std::shared_ptr<ClassUnit> createClass(const std::string& name) const = 0;
-    virtual std::shared_ptr<MethodUnit> createMethod(const std::string& name, const std::string& returnType, Unit::Flags flags) const = 0;
+    virtual std::shared_ptr<MethodUnit> createMethod(const std::string& name, const std::string& returnType = "void", Unit::Flags flags = 0) const = 0;
     virtual std::shared_ptr<PrintOperationUnit> createPrintOperation(const std::string& text) const = 0;
 };
 
