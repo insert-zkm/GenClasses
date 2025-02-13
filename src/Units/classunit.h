@@ -15,7 +15,7 @@ public:
         PRIVATE,
         PRIVATE_PROTECTED,
         ITERNAL,
-        PRTECTED_ITERNAL
+        PROTECTED_ITERNAL
     };
 
     explicit ClassUnit(const std::string name) : m_name(name) {}
