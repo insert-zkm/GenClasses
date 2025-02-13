@@ -26,7 +26,7 @@ std::string generateProgram(std::shared_ptr<LanguageFactory> lf) {
     myClass->add(method4, ClassUnit::PUBLIC);
     subClass->add(method1, ClassUnit::PRIVATE);
 
-    std::shared_ptr<MethodUnit> method = lf->createMethod("testFunc4", "void", MethodUnit::STATIC);
+    std::shared_ptr<MethodUnit> method = lf->createMethod("testFunc4", "void", MethodUnit::STATIC | MethodUnit::CONST);
 
     method->add(lf->createPrintOperation("Hello, world!\\n"));
     myClass->add(method, ClassUnit::PROTECTED);

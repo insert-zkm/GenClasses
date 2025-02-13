@@ -41,6 +41,9 @@ std::string CsMethodUnit::compile(unsigned int level) const {
     result += m_returnType + " ";
     result += m_name + "()";
 
+    if(m_flags & CONST) {
+        result += " const";
+    }
     result += " {\n";
     for(int i = 0; i < m_body.size(); i++) {
         result += m_body[i]->compile(level + 1);
